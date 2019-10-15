@@ -9,7 +9,15 @@ alphabet_pirate = 'aeiouybcdfghjklmnpqrstvwxz'
 alphabet = string.ascii_lowercase
 
 # On crée la correspondance entre les 2 alphabets
+dict = {}
+for i in range(len(alphabet_pirate)):
+    dict[alphabet_pirate[i]] = i
 
+def pirate2normal(s):
+    list=[]
+    for i in range(len(s)):
+        list.append(dict[i])
+        
 
 
 # On fait d'abord le problème sur le vrai alphabet plutôt que sur l'alphabet pirate
