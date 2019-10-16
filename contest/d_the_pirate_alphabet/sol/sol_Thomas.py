@@ -14,10 +14,13 @@ for i in range(len(alphabet_pirate)):
     dict[alphabet_pirate[i]] = i
 
 def pirate2normal(s):
-    list=[]
+    list_index=[]
+    list_char=[]
     for i in range(len(s)):
-        list.append(dict[i])
-        
+        list_index.append(dict[s[i]])
+        list_char.append(alphabet[dict[s[i]]])
+    return ''.join(list_char)
+
 
 
 # On fait d'abord le problème sur le vrai alphabet plutôt que sur l'alphabet pirate
@@ -53,6 +56,6 @@ def to_insert_number(s):
         index_to_remove = np.argmax(compte_desordres(s))
         s = s[:index_to_remove] + s[index_to_remove + 1:]
         print('2 ', s)
-    return 26 - len(s)
+    return 26 - len(set(s))
 
-print(to_insert_number(s))
+print(to_insert_number( pirate2normal(s) ))
