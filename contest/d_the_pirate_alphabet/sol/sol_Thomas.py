@@ -50,7 +50,17 @@ def compte_desordres(test):
 #     s = s[:index_to_remove] + s[index_to_remove+1:]
 #     print('2 ', s)
 
+def filtre_doublons(s):
+    s_new = ''
+    for i in range(len(s)):
+        letter = s[i]
+        if letter not in s_new:
+            s_new += letter
+    return s_new
+
+
 def to_insert_number(s):
+    s = filtre_doublons(s)
     while compte_desordres(s).sum() != 0:
         print('1 ', s)
         index_to_remove = np.argmax(compte_desordres(s))
